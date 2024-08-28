@@ -18,7 +18,7 @@ This project demonstrates a basic setup of the ZK Framework with an Oracle Datab
 
 ## Setup and Configuration
 
-### 1. Install Dependencies
+### Run Program
 
 Ensure you have Maven installed. The project uses Maven to manage dependencies. Run the following command to download and install the necessary dependencies:
 
