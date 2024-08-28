@@ -1,0 +1,61 @@
+<zk>
+	<window title="List Student" width="100%" border="normal"
+			apply="org.example.StudentController" style="margin:auto">
+		<label value="Student List:"/>
+		<hlayout spacing="20px">
+			<listbox id="studentListbox" model="@bind(vm.students)" emptyMessage="No student found in the result">
+				<listhead>
+					<listheader label="ID" width="20%"/>
+					<listheader label="Name" width="20%"/>
+					<listheader label="Email" width="20%"/>
+					<listheader label="Phone" width="20%"/>
+					<listheader label="Number" width="20%"/>
+					<listheader label="Actions" width="20%"/>
+				</listhead>
+				<template name="model">
+					<listitem>
+						<listcell label="${each.id}"/>
+						<listcell label="${each.name}"/>
+						<listcell label="${each.email}"/>
+						<listcell label="${each.phone}"/>
+						<listcell label="${each.number}"/>
+						<listcell>
+							<button label="Delete" forward="onClick=studentListbox.onStudentDelete"/>
+						</listcell>
+					</listitem>
+				</template>
+			</listbox>
+		</hlayout>
+
+		<!-- Form nhập dữ liệu sinh viên -->
+		<label value="Student Detail:" style="margin:auto; margin-top: 20px;"/>
+		<hlayout spacing="20px" style="margin:auto; margin-top: 20px;">
+			<label value="ID:"/>
+			<textbox id="idTextbox" value="@bind(vm.selectedStudent.id)" width="150px"/>
+			<label value="Name:"/>
+			<textbox id="nameTextbox" value="@bind(vm.selectedStudent.name)" width="150px"/>
+			<label value="Email:"/>
+			<textbox id="emailTextbox" value="@bind(vm.selectedStudent.email)" width="200px"/>
+			<label value="Phone:"/>
+			<textbox id="phoneTextbox" value="@bind(vm.selectedStudent.phone)" width="150px"/>
+			<label value="Number:"/>
+			<textbox id="numberTextbox" value="@bind(vm.selectedStudent.number)" width="150px"/>
+			<button label="Update" forward="onClick=studentListbox.onStudentUpdate"/>
+		</hlayout>
+		<label value="Add student" style="margin:auto; margin-top: 20px;"/>
+		<hlayout style="margin:auto; margin-top: 20px;">
+			<label value="ID:"/>
+			<textbox id="addIdTextbox" width="150px"/>
+			<label value="Name:"/>
+			<textbox id="addNameTextbox" width="150px"/>
+			<label value="Email:"/>
+			<textbox id="addEmailTextbox" width="200px"/>
+			<label value="Phone:"/>
+			<textbox id="addPhoneTextbox" width="150px"/>
+			<label value="Number:"/>
+			<textbox id="addNumberTextbox" width="150px"/>
+			<button label="Add" forward="onClick=studentListbox.onStudentAdd"/>
+			<button label="Clear" forward="onClick=studentListbox.onStudentClear"/>
+		</hlayout>
+	</window>
+</zk>
